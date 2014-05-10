@@ -14,18 +14,42 @@ namespace Slarti {
 		}
 
 		[Test]
-		public void PlayerIsConstructable() {
-			Assert.IsNotNull(player);
+		public void PlayerStartsFiringCurrentWeapon() {
+			TestWeapon weapon = new TestWeapon();
+
+			player.currentWeapon = weapon;
+			player.StartFiringWeapon();
+
+			Assert.True(weapon.isFiring);
 		}
 
 		[Test]
-		public void FiringAWeapon() {
-			Assert.That(1 + 2 == 3);
+		public void PlayerStopsFiringCurrentWeapon() {
+			TestWeapon weapon = new TestWeapon();
+			
+			player.currentWeapon = weapon;
+			player.StopFiringWeapon();
+			
+			Assert.False(weapon.isFiring);
 		}
 
 		[Test]
-		public void EatingBreakfast() {
-			Assert.That(4 + 5 == 9);
+		public void IgnoresFireWeaponWhenNoWeaponEquipped() {
+			player.StartFiringWeapon();
+			player.StopFiringWeapon();
+		}
+
+	}
+
+	public class TestWeapon : Weapon {
+		public bool isFiring = false;
+
+		public void StartFiring() {
+			isFiring = true;
+		}
+
+		public void StopFiring() {
+			isFiring = false;
 		}
 	}
 }
