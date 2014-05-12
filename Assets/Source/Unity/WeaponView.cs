@@ -3,12 +3,12 @@ using System.Collections;
 
 public class WeaponView : MonoBehaviour {
 
-	public Slarti.WeaponTypes.Types weaponType;
+	public Slarti.WeaponType weaponType;
 
 	public Slarti.Weapon weapon;
 
 	void Awake() {
-		weapon = Slarti.WeaponTypes.BuildWeapon(weaponType);
+		weapon = Slarti.WeaponFactory.BuildWeapon(weaponType);
 	}
 
 }

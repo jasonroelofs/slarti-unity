@@ -4,18 +4,18 @@ using NUnit.Framework;
 namespace Slarti {
 	
 	[TestFixture] 
-	public class WeaponTypesTest {
+	public class WeaponFactoryTest {
 
 		[Test]
 		public void BuildsWeaponOfGivenType() {
-			Weapon newWeapon = WeaponTypes.BuildWeapon(WeaponTypes.Types.SemiAuto);
+			Weapon newWeapon = WeaponFactory.BuildWeapon(WeaponType.SemiAuto);
 			Assert.NotNull(newWeapon);
 			Assert.IsInstanceOf<SemiAutoWeapon>(newWeapon);
 		}
 
 		[Test]
 		public void RaisesErrorIfWeaponTypeNotImplemented() {
-			Assert.Throws<WeaponTypes.NotImplementedWeaponTypeException>( () => WeaponTypes.BuildWeapon(WeaponTypes.Types.Unknown) );
+			Assert.Throws<WeaponFactory.NotImplementedWeaponTypeException>( () => WeaponFactory.BuildWeapon(WeaponType.Unknown) );
 		}
 	}
 }
