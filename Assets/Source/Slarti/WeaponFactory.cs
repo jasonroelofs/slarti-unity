@@ -4,8 +4,6 @@ namespace Slarti
 {
 	public class WeaponFactory
 	{
-
-
 		public class NotImplementedWeaponTypeException : Exception { }
 
 		public static Weapon BuildWeapon(WeaponType weaponType) {

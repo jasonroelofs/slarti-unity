@@ -44,6 +44,8 @@ namespace Slarti {
 	public class TestWeapon : Weapon {
 		public bool isFiring = false;
 
+		public WeaponView View { get; set; }
+
 		public void StartFiring() {
 			isFiring = true;
 		}

@@ -4,15 +4,26 @@ namespace Slarti
 {
 	public class SemiAutoWeapon : Weapon
 	{
+		private bool canFireAgain = true;
+
+		#region Weapon implementation
+		public WeaponView View { get; set; }
+
 		public void StartFiring()
 		{
-			throw new System.NotImplementedException();
+			if (canFireAgain) {
+				canFireAgain = false;
+				DamagePacket packet = new DamagePacket();
+				View.Fire(packet);
+			}
 		}
 
 		public void StopFiring()
 		{
-			throw new System.NotImplementedException();
+			canFireAgain = true;
 		}
+		#endregion
+
 	}
 
 }
