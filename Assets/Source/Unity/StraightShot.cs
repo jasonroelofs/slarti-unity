@@ -10,4 +10,9 @@ public class StraightShot : MonoBehaviour {
 		rigidbody.velocity = transform.forward * speed;
 		Destroy(gameObject, lifeTime);
 	}
+
+	void OnTriggerEnter(Collider other) {
+		Debug.Log("["+ gameObject.name +"] I hit something [" + other.gameObject.name + "], die!");
+		Destroy(gameObject);
+	}
 }

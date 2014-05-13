@@ -37,7 +37,9 @@ public class WeaponView : MonoBehaviour, Slarti.WeaponView {
 	#region WeaponView implementation
 	public void Fire(Slarti.DamagePacket packet)
 	{
-		Instantiate(ammo, firePoint.position, firePoint.rotation);
+		GameObject ammoGO = Instantiate(ammo, firePoint.position, firePoint.rotation) as GameObject;
+		DoesDamage damage = ammoGO.AddComponent<DoesDamage>();
+		damage.DamagePacket = packet;
 	}
 	#endregion
 }
