@@ -14,6 +14,8 @@ namespace Slarti
 			if (canFireAgain) {
 				canFireAgain = false;
 				DamagePacket packet = new DamagePacket();
+				packet.baseDamage = 10;
+
 				View.Fire(packet);
 			}
 		}

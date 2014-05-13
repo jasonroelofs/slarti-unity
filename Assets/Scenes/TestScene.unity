@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2007603169}
-  offset: {x: 0, y: 20, z: 0}
+  offset: {x: 0, y: 25, z: 0}
   rotation: {x: 90, y: 0, z: 0}
 --- !u!1 &996095019
 GameObject:
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7471ba31ff624770b7def85ab5fd0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 7.5
 --- !u!114 &2007603176
 MonoBehaviour:
   m_ObjectHideFlags: 0
