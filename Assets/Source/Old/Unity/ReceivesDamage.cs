@@ -10,7 +10,7 @@ public class ReceivesDamage : MonoBehaviour {
 
 		if (doesDamage != null) {
 			Debug.Log("[" + gameObject.name + "] ERMAGHERD! I TAKEZ DAMAGE -- " + doesDamage.DamagePacket.baseDamage);
-			character.TakeDamage(doesDamage.DamagePacket);
+			//character.TakeDamage(doesDamage.DamagePacket);
 		}
 	}
 }
