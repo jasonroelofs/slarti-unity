@@ -13,20 +13,23 @@ public class GenerateEntity : MonoBehaviour, slarti.level.EntityGenerator {
 			knownEntities.Add(prefab.name, prefab);
 		}
 	}
-	
 
 	#region EntityGenerator implementation
 
-	public void PlaceEntity(string entityName, Vector3 location)
+	public GameObject PlaceEntity(string entityName, Vector3 location)
 	{
 		GameObject entityPrefab = knownEntities[entityName] as GameObject;
 		if (entityPrefab != null) {
-			Instantiate(entityPrefab, location, Quaternion.identity);
+			GameObject entity = Instantiate(entityPrefab, location, Quaternion.identity) as GameObject;
+			entity.transform.parent = transform;
+			return entity;
 		} else {
 			Debug.LogWarning(
 				string.Format("Trying to instantiate entity {} but no such prefab exists", entityName)
 			);
 		}
+
+		return null;
 	}
 
 	#endregion

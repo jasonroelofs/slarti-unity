@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace slarti.level
 {
 	public interface EntityGenerator {
-		void PlaceEntity(string entityName, UnityEngine.Vector3 location);
+		GameObject PlaceEntity(string entityName, Vector3 location);
 	}
 
 }

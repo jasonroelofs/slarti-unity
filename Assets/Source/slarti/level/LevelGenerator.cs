@@ -1,28 +1,27 @@
+using UnityEngine;
+
 namespace slarti.level
 {
 	public class LevelGenerator
 	{
 		private GeometryGenerator geometryGenerator;
-		private EntityGenerator entityGenerator;
 
-		public LevelGenerator(GeometryGenerator geometryGenerator, EntityGenerator entityGenerator) {
+		public LevelGenerator(GeometryGenerator geometryGenerator) {
 			this.geometryGenerator = geometryGenerator;
-			this.entityGenerator = entityGenerator;
 		}
 
 		public void GenerateLevel() {
 			BuildGeometry();
-			PlaceEnemies();
+			SetLighting();
 		}
 
 		void BuildGeometry() {
 			Logger.Info("Building Level Geometry");
-			geometryGenerator.BuildPlaneAt(new UnityEngine.Vector3(0, 0, 0));
+			geometryGenerator.BuildPlaneAt(new Vector3(0, 0, 0), 5, 5);
 		}
 
-		void PlaceEnemies() {
-			Logger.Info("Placing an enemy");
-			entityGenerator.PlaceEntity("Enemy", new UnityEngine.Vector3(0, 1, 0));
+		void SetLighting() {
+			geometryGenerator.CreateDirectionalLight(Quaternion.Euler(new Vector3(45, 45, 0)));
 		}
 	}
 }
