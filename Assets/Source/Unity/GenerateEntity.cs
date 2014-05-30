@@ -32,6 +32,12 @@ public class GenerateEntity : MonoBehaviour, slarti.level.EntityGenerator {
 		return null;
 	}
 
+	public GameObject PlacePickup(string pickupName, Vector3 location) {
+		GameObject pickup = PlaceEntity(pickupName, location);
+		pickup.AddComponent<Pickup>();
+		return pickup;
+	}
+
 	#endregion
 
 

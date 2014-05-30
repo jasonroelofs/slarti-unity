@@ -8,7 +8,10 @@ namespace slarti {
 
 		public void Start() {
 			LevelGenerator.GenerateLevel();
+
 			EntityGenerator.PlaceEntity("Enemy", new Vector3(0, 1, 5));
+			EntityGenerator.PlacePickup("Weapon", new Vector3(5, 1, 5));
+
 			GameObject player = EntityGenerator.PlaceEntity("Player", new Vector3(0, 0, 0));
 
 			Events.instance.Fire(new events.TrackEntity(player));
