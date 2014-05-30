@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using slarti;
+using slarti.level;
 
 namespace unity {
 	public class StartGame : MonoBehaviour {
 
-		public slarti.Game game;
+		public Game game;
 
 		void Start () {
-			game = new slarti.Game();
+			game = new Game();
 			game.Camera = GetComponentInChildren<Camera>().gameObject;
 			game.LevelGenerator = BuildLevelGenerator();
 			game.EntityGenerator = BuildEntityGenerator();
@@ -18,20 +20,20 @@ namespace unity {
 			game.Update(Time.deltaTime);
 		}
 
-		slarti.level.LevelGenerator BuildLevelGenerator() {
+		LevelGenerator BuildLevelGenerator() {
 			GameObject levelGenGO = new GameObject("Geometry Generator");
 			levelGenGO.transform.parent = transform;
 			GenerateGeometry geoGen = levelGenGO.AddComponent<GenerateGeometry>();
 
-			return new slarti.level.LevelGenerator(geoGen as slarti.level.GeometryGenerator);
+			return new LevelGenerator(geoGen as GeometryGenerator);
 		}
 
-		slarti.level.EntityGenerator BuildEntityGenerator() {
+		EntityGenerator BuildEntityGenerator() {
 			GameObject entityGenGO = new GameObject("Entity Generator");
 			entityGenGO.transform.parent = transform;
 			GenerateEntity entityGen = entityGenGO.AddComponent<GenerateEntity>();
             
-			return entityGen as slarti.level.EntityGenerator;
+			return entityGen as EntityGenerator;
 		}
 	}
 }
