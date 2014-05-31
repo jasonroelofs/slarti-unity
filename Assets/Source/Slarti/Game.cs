@@ -14,7 +14,7 @@ namespace slarti {
 
 			GameObject player = EntityGenerator.PlaceEntity("Player", new Vector3(0, 0, 0));
 
-			Events.instance.Fire(new events.TrackEntity(player));
+			Camera.SendMessage("TrackEntity", player, SendMessageOptions.RequireReceiver);
 		}
 
 		public void Update(float deltaT) {

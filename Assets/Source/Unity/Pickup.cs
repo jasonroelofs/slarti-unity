@@ -34,6 +34,10 @@ public class Pickup : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		Debug.Log("I've been hit!");
+		Inventory inventory = collider.gameObject.GetComponent<Inventory>();
+		if (inventory != null) {
+			Destroy(this);
+			inventory.PickUp(gameObject);
+		}
 	}
 }
